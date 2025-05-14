@@ -1,0 +1,35 @@
+
+workflows:
+  radio_sur_sangam_ios:
+    name: Radio Sur Sangam iOS Build
+    max_build_duration: 60
+    environment:
+      flutter: stable
+      xcode: latest
+      cocoapods: default
+      vars:
+        BUNDLE_ID: "com.sursangam.radio"
+        APP_NAME: "Radio Sur Sangam"
+        APPLE_ID: "raajgulati@gmail.com"
+    triggering:
+      events:
+        - push
+        - manual
+    scripts:
+      - name: 📦 Install dependencies
+        script: |
+          flutter pub get
+      - name: ⚙️ Set up code signing
+        script: |
+          echo "Setting up automatic code signing..."
+      - name: 🛠 Build IPA
+        script: |
+          flutter build ios --release --no-codesign
+    artifacts:
+      - build/ios/ipa/*.ipa
+      - build/ios/iphoneos/Runner.app
+      - flutter_drive.log
+    publishing:
+      email:
+        recipients:
+          - radiosangaminternational@gmail.com

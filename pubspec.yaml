@@ -1,0 +1,42 @@
+
+name: radio_sur_sangam
+description: Radio Sur Sangam app with splash screen and app icon
+
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: ">=3.4.1 <4.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.6
+  just_audio: ^0.9.46
+  http: ^0.13.6
+  intl: ^0.18.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
+  flutter_native_splash: ^2.3.5
+  flutter_launcher_icons: ^0.13.1
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/logo.png
+    - assets/splash/splash_screen_final.png
+
+flutter_native_splash:
+  color: "#1B1D3C"
+  image: assets/splash/splash_screen_final.png
+  android: true
+  ios: true
+  web: true
+
+flutter_icons:
+  android: true
+  ios: true
+  image_path: "assets/logo.png"
